@@ -25,6 +25,9 @@ RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "$
 # cd into the user directory, download and unzip the Azure DevOps agent
 RUN cd /home/vscode && mkdir azure-pipelines && cd azure-pipelines
 
+# Add this line to install liblttng-ust-dev
+RUN apt-get update && apt-get install -y liblttng-ust-dev
+
 # input Azure DevOps agent arguments
 ARG ARCH="x64"
 ARG AGENT_VERSION="2.206.1"
